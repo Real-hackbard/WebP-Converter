@@ -31,6 +31,7 @@ Google announced the WebP format in September 2010; the company released the fir
 * Color-toning of RGB pixels
 * RGB pixel swapping
 * Grayscale, Sepia and Negativ calculating
+* Comparing file size ratios
 
 <br>
 
