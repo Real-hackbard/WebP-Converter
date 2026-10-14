@@ -15,11 +15,20 @@ WebP is a [raster graphics](https://en.wikipedia.org/wiki/Raster_graphics) file 
 
 Google announced the WebP format in September 2010; the company released the first stable version of its supporting [library](https://en.wikipedia.org/wiki/Library_(computing)) in April 2018. WebP has seen widespread adoption across the Internet in order to reduce image size, with all major browsers currently supporting the format.
 
-### Supported Formats:
+### :wrench: Supported Formats:
 * Bitmap
 * Jpg/Jpeg
 * PNG
 * GIF
+
+### :wrench: Features:
+* Lossless compression: Up to 26% smaller than comparable PNG files.
+* Lossy compression: Approx. 25% to 34% smaller than JPEG files at the same image quality.
+* Transparency: Supports an alpha channel for transparency (with both lossless and lossy compression).
+* Quality setting
+* Color-toning of RGB pixels
+* RGB pixel swapping
+* Grayscale, Sepia and Negativ calculating
 
 <br>
 
