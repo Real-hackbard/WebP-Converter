@@ -77,7 +77,7 @@ google developer : https://developers.google.com/speed/webp/docs/api?hl=de
 <br>
 
 # :speech_balloon: Decode WebP:
-Since working directly with C pointers in Delphi is error-prone, the call is usually encapsulated in a more convenient Delphi procedure that works with types such as TBytes (dynamic arrays).
+Since working directly with C pointers in Delphi is error-prone, the call is usually encapsulated in a more convenient Delphi procedure that works with types such as TBytes ([dynamic arrays](https://en.wikipedia.org/wiki/Dynamic_array)).
 
 ```pascal
 procedure DecodeRawWebP(const FilePath: string);
