@@ -53,7 +53,7 @@ WebP's lossy compression algorithm is based on the intra-frame coding of the VP8
 
 # :wrench: Coding parameters
 
-| WebP Config | Description |
+| WebP Config command | Description |
 | :----------- | :----------- |
 | quality: Single     | between 0 (smallest file) and 100 (biggest)  |
 | target_size: Integer     | if non-zero, set the desired target size in bytes. Takes precedence over the 'compression'    |
