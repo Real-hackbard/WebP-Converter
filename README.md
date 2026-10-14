@@ -48,7 +48,7 @@ WebP's lossy compression algorithm is based on the intra-frame coding of the VP8
 # :speech_balloon: Benefits for the Web
 
 * Faster load times: Smaller file sizes reduce data traffic and speed up website loading.
-* Better performance: Supported by all major modern web browsers (Chrome, Firefox, Edge, Safari, SeaMonkey, Pale Moon, GNOME Web, Midori, and Falkon) as well as image editing software such as Photoshop.
+* Better performance: Supported by all major modern web browsers (****Chrome, Firefox, Edge, Safari, SeaMonkey, Pale Moon, GNOME Web, Midori, and Falkon****) as well as image editing software such as Photoshop.
 
 <br>
 
