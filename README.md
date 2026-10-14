@@ -51,3 +51,20 @@ WebP's lossy compression algorithm is based on the intra-frame coding of the VP8
 * Better performance: Supported by all major modern web browsers (Chrome, Firefox, Edge, Safari) as well as image editing software such as Photoshop.
 
 
+# :wrench: Coding parameters
+
+| WebP Config | Description |
+| :----------- | :----------- |
+| quality: Single     | between 0 (smallest file) and 100 (biggest)  |
+| target_size: Integer     | if non-zero, set the desired target size in bytes. Takes precedence over the 'compression'    |
+| target_PSNR: Single     | if non-zero, specifies the minimal distortion to try to achieve. Takes precedence over target_size.     |
+| method: Integer     | Quality/speed trade-off (0=fast, 6=slower-better)     |
+| segments: Integer     | Maximum number of segments to use, in [1..4]     |
+| sns_strength: Integer     | Spatial Noise Shaping. 0=off, 100=maximum.     |
+| filter_strength: Integer     | range: 0 = off .. 100 = strongest     |
+| filter_sharpness: Integer     | range: 0 = off .. 7 = least sharp    |
+| filter_type: Integer     | filtering type: 0 = simple, 1 = strong (only used if filter_strength > 0 or autofilter > 0)    |
+| autofilter: Integer     | Auto adjust filter's strength 0 = off, 1 = on     |
+| pass: Integer     | number of entropy-analysis passes (in 1..10).     |
+| show_compressed     | If true, export the compressed picture back. In-loop filtering is not applied.    |
+| preprocessing: Integer     | Preprocessing filter (0=none, 1=segment-smooth) log2(number of token partitions) in 0..3 Default is set to 0 for easier progressive decoding.   |
