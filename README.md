@@ -109,3 +109,96 @@ begin
   end;
 end;
 ```
+
+<br>
+
+# :speech_balloon: PNG import:
+```{$R-}``` should be used primarily in final release builds or selectively in time-critical, heavily optimized loops—and only then if you are absolutely certain that the indices can never exceed the bounds.
+
+It is recommended to keep range checking enabled during development and for debug builds using {$R+} (or via project options) in order to catch programming errors immediately.
+
+PNG import without rangecheck:
+
+```pascal
+procedure PngToBmp(var Dest: TBitmap; AFilename: TFilename);
+type
+  TRGB32 = packed record
+    B, G, R, A : Byte;
+  end;
+  PRGBArray32 = ^TRGBArray32;
+  TRGBArray32 = array[0..0] of TRGB32;
+type
+  TRG24 = packed record
+    rgbtBlue, rgbtGreen, rgbtRed : Byte;
+  end;
+  PRGBArray24 = ^TPRGBArray24;
+  TPRGBArray24 = array[0..0] of TRG24;
+type
+  TByteArray = Array[Word] of Byte;
+  PByteArray = ^TByteArray;
+  TPByteArray = array[0..0] of TByteArray;
+var
+  BMP : TBitmap;
+  PNG: TPNGObject;
+  x, y: Integer;
+  BmpRow: PRGBArray32;
+  PngRow : PRGBArray24;
+  AlphaRow: PByteArray;
+begin
+  Bmp := TBitmap.Create;
+  PNG := TPNGObject.Create;
+  try
+    if AFilename <> '' then
+    begin
+      PNG.LoadFromFile(AFilename);
+      BMP.PixelFormat := pf32bit;
+      BMP.Height := PNG.Height;
+      BMP.Width := PNG.Width;
+      if ( PNG.TransparencyMode = ptmPartial ) then
+      begin
+        for Y := 0 to BMP.Height-1 do
+        begin
+          BmpRow := PRGBArray32(BMP.ScanLine[Y]);
+          PngRow := PRGBArray24(PNG.ScanLine[Y]);
+          AlphaRow := PByteArray(PNG.AlphaScanline[Y]);
+
+          for X := 0 to BMP.Width - 1 do
+          begin
+            with BmpRow[X] do
+            begin
+              with PngRow[X] do
+              begin
+                R := rgbtRed; G := rgbtGreen; B := rgbtBlue;
+              end;
+              A := Byte(AlphaRow[X]);
+            end;
+          end;
+        end;
+      end else
+      begin
+        for Y := 0 to BMP.Height-1 do
+        begin
+          BmpRow := PRGBArray32(BMP.ScanLine[Y]);
+          PngRow := PRGBArray24(PNG.ScanLine[Y]);
+
+          for X := 0 to BMP.Width - 1 do
+          begin
+            with BmpRow[X] do
+            begin
+              with PngRow[X] do
+              begin
+                R := rgbtRed; G := rgbtGreen; B := rgbtBlue;
+              end;
+              A := 255;
+            end;
+          end;
+        end;
+      end;
+      Dest.Assign(BMP);
+    end;
+  finally
+    Bmp.Free;
+    PNG.Free;
+  end;
+end;
+```
