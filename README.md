@@ -69,3 +69,39 @@ WebP's lossy compression algorithm is based on the intra-frame coding of the VP8
 | pass: Integer     | number of entropy-analysis passes (in 1..10).     |
 | show_compressed     | If true, export the compressed picture back. In-loop filtering is not applied.    |
 | preprocessing: Integer     | Preprocessing filter (0=none, 1=segment-smooth) log2(number of token partitions) in 0..3 Default is set to 0 for easier progressive decoding.   |
+
+<br>
+
+# :speech_balloon: Decode WebP:
+Since working directly with C pointers in Delphi is error-prone, the call is usually encapsulated in a more convenient Delphi procedure that works with types such as TBytes (dynamic arrays).
+
+```pascal
+procedure DecodeRawWebP(const FilePath: string);
+var
+  FileStream: TFileStream;
+  RawData: TBytes;
+  PixelBuffer: PByte;
+  Width, Height: Integer;
+begin
+  // Read a file into a byte array
+  FileStream := TFileStream.Create(FilePath, fmOpenRead);
+  try
+    SetLength(RawData, FileStream.Size);
+    FileStream.ReadBuffer(RawData[0], FileStream.Size);
+  finally
+    FileStream.Free;
+  end;
+  // Call the DLL function. Returns a pointer to the uncompressed RGBA pixels.
+  PixelBuffer := WebPDecodeRGBA(@RawData[0], Length(RawData), Width, Height);
+  if Assigned(PixelBuffer) then
+  begin
+    try
+      // "PixelBuffer" now contains the raw data (width * height * 4 bytes).
+      // You can now copy these into a TBitmap (PixelFormat = pf32bit).
+    finally
+      // Free memory in the DLL again
+      WebPFree(PixelBuffer);
+    end;
+  end;
+end;
+```
