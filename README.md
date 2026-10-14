@@ -113,7 +113,8 @@ end;
 <br>
 
 # :speech_balloon: PNG import:
-```{$R-}``` should be used primarily in final release builds or selectively in time-critical, heavily optimized loops—and only then if you are absolutely certain that the indices can never exceed the bounds.
+```{$R-}``` or ```{$RANGECHECKS OFF}``` 
+should be used primarily in final release builds or selectively in time-critical, heavily optimized loops—and only then if you are absolutely certain that the indices can never exceed the bounds.
 
 It is recommended to keep range checking enabled during development and for debug builds using {$R+} (or via project options) in order to catch programming errors immediately.
 
