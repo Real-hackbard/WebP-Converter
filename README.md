@@ -43,6 +43,7 @@ Google announced the WebP format in September 2010; the company released the fir
 
 WebP's lossy compression algorithm is based on the intra-frame coding of the VP8 video format and the Resource Interchange File Format ([RIFF](https://en.wikipedia.org/wiki/Resource_Interchange_File_Format)) as a [container format](https://en.wikipedia.org/wiki/Container_format). As such, it is a block-based transformation scheme with eight bits of color depth and a [luminance–chrominance](https://en.wikipedia.org/wiki/Y%E2%80%B2UV#Luminance/chrominance_systems_in_general) model with [chroma subsampling](https://en.wikipedia.org/wiki/Chroma_subsampling) by a ratio of 1:2 (YCbCr 4:2:0). Without further content, the mandatory RIFF container has an overhead of only twenty bytes, though it can also hold additional metadata. The side length of WebP images is limited to 16383 pixels.
 
+<br>
 
 # :speech_balloon: Benefits for the Web
 
