@@ -22,6 +22,8 @@ Google announced the WebP format in September 2010; the company released the fir
 * GIF
 
 ### :wrench: Features:
+* Batch processing
+* Adjustment of size proportions
 * Lossless compression: Up to 26% smaller than comparable PNG files.
 * Lossy compression: Approx. 25% to 34% smaller than JPEG files at the same image quality.
 * Transparency: Supports an alpha channel for transparency (with both lossless and lossy compression).
