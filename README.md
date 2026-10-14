@@ -50,6 +50,7 @@ WebP's lossy compression algorithm is based on the intra-frame coding of the VP8
 * Faster load times: Smaller file sizes reduce data traffic and speed up website loading.
 * Better performance: Supported by all major modern web browsers (Chrome, Firefox, Edge, Safari) as well as image editing software such as Photoshop.
 
+<br>
 
 # :wrench: Coding parameters
 
