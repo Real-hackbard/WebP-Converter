@@ -72,6 +72,10 @@ WebP's lossy compression algorithm is based on the intra-frame coding of the VP8
 
 <br>
 
+google developer : https://developers.google.com/speed/webp/docs/api?hl=de
+
+<br>
+
 # :speech_balloon: Decode WebP:
 Since working directly with C pointers in Delphi is error-prone, the call is usually encapsulated in a more convenient Delphi procedure that works with types such as TBytes (dynamic arrays).
 
