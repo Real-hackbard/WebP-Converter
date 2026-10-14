@@ -11,7 +11,9 @@
 </br>
 
 
+WebP is a [raster graphics](https://en.wikipedia.org/wiki/Raster_graphics) file format developed by Google and intended as a replacement for the JPEG, PNG, and GIF file formats on the Web. It supports [image compression](https://en.wikipedia.org/wiki/Image_compression) (both [lossy](https://en.wikipedia.org/wiki/Lossy_compression) and [lossless](https://en.wikipedia.org/wiki/Lossless_compression)), as well as animation and alpha compositing. The sister project for video is called [WebM](https://en.wikipedia.org/wiki/WebM).
 
+Google announced the WebP format in September 2010; the company released the first stable version of its supporting [library](https://en.wikipedia.org/wiki/Library_(computing)) in April 2018. WebP has seen widespread adoption across the Internet in order to reduce image size, with all major browsers currently supporting the format.
 
 
 
